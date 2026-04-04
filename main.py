@@ -1,25 +1,44 @@
 from expense import Expense
 from storage import save_expenses, load_expenses
-
-def main():
-    # Step 1: Create some sample expenses
-    expense1 = Expense(500, "Food", "2026-04-01")
-    expense2 = Expense(1200, "Travel", "2026-04-02")
-
-    expenses = [expense1, expense2]
-
-    # Step 2: Save expenses to file
-    save_expenses(expenses)
-    print("Expenses saved successfully!\n")
-
-    # Step 3: Load expenses from file
-    loaded_expenses = load_expenses()
-
-    # Step 4: Display loaded expenses
-    print("Loaded Expenses:")
-    for e in loaded_expenses:
-        print(e)
+from expenseManager import ExpenseManager
 
 
-if __name__ == "__main__":
-    main()
+manager = ExpenseManager([])
+while True:
+
+    print("\n--- Expense Tracker ---")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Total Expense")
+    print("4. Category Summary")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        amount = float(input("Enter amount: "))
+        category=input("Enter the category : ")
+        date=input("Enter date (YYYY-MM-DD):")
+
+        expense = Expense(amount,category,date)
+        manager.add_expense(expense)
+        print("Expense added successfully!")
+
+    elif choice == "2":
+        print("View Expenses selected")
+
+    elif choice == "3":
+        print("Total Expense selected")
+
+    elif choice == "4":
+        print("Category Summary selected")
+
+    elif choice == "5":
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice")
+
+
+  
