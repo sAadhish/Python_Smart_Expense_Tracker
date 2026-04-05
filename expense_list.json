@@ -18,5 +18,15 @@
         "amount": 1111.0,
         "category": "tree",
         "date": "2001-12-22"
+    },
+    {
+        "amount": 23.0,
+        "category": "love",
+        "date": "2001-01-22"
+    },
+    {
+        "amount": 23.0,
+        "category": "www",
+        "date": "25-10-2001"
     }
 ]

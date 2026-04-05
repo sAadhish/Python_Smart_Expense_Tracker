@@ -2,8 +2,9 @@ from expense import Expense
 from storage import save_expenses, load_expenses
 from expenseManager import ExpenseManager
 
+expense_data = load_expenses()
+manager = ExpenseManager(expense_data)
 
-manager = ExpenseManager([])
 while True:
 
     print("\n--- Expense Tracker ---")
@@ -16,22 +17,33 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == "1":
-        amount = float(input("Enter amount: "))
+        
+        try:
+            amount = float(input("Enter amount: "))
+        except ValueError:
+            print("Invalid amount! Please enter a number.")
+            continue
         category=input("Enter the category : ")
         date=input("Enter date (YYYY-MM-DD):")
 
         expense = Expense(amount,category,date)
         manager.add_expense(expense)
-        print("Expense added successfully!")
+        save_expenses(manager.expenses)
+
+        print("\nExpense added successfully!\n")
 
     elif choice == "2":
-        print("View Expenses selected")
+        manager.list_expenses()
 
     elif choice == "3":
-        print("Total Expense selected")
+        total = manager.get_total_expense()
+        print("total expense : ",total)
 
     elif choice == "4":
-        print("Category Summary selected")
+        summary = manager.get_category_summary()
+        print("\nCategory Summary:")
+        for cat, amt in summary.items():
+            print(f"{cat} : {amt}")
 
     elif choice == "5":
         print("Exiting...")

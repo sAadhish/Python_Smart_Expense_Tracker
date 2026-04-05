@@ -5,14 +5,14 @@ from storage import save_expenses ,load_expenses
 class ExpenseManager :
 
     def __init__(self,expense):
-        self.expenses = load_expenses()
+        self.expenses = expense
         
 
 
     def add_expense(self, expense):
         # expense = Expense(amount, category, date)
         self.expenses.append(expense)
-        save_expenses(self.expenses)
+        
 
         
 
