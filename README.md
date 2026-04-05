@@ -63,7 +63,7 @@ expense-tracker/
 
 ▶️ Run Locally
 
-git clone https://github.com/your-username/expense-tracker.git
+git clone [https://github.com/your-username/expense-tracker.git](https://github.com/sAadhish/Python_Smart_Expense_Tracker.git)
 cd expense-tracker
 python main.py
 
